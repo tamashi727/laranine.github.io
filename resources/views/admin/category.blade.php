@@ -21,6 +21,13 @@
     .input_color{
         color:black;
     }
+    .center{
+        margin:auto;
+        width:50%;
+        text-align: center;
+        margin-top: 30px;
+        border:3px solid greenyellow;
+    }
 
     </style>
     <!-- End layout styles -->
@@ -52,6 +59,31 @@
                         </form>
 
                 </div>
+                <table class="center">
+                    <tr>
+                        <td>
+                            Category Name
+
+                        </td>
+                        <td>
+                            Action
+
+                        </td>
+                    </tr>
+                    @foreach($data as $data)
+
+                    <tr >
+                        <td>
+                            {{ $data->category_name }}
+
+                        </td>
+                        <td style="margin-top: 3px;">
+                            <a onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger" href="{{ url('delete_category',$data->id) }}">Delete</a>
+
+                        </td>
+                    </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
     <!-- container-scroller -->
