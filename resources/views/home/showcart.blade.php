@@ -48,7 +48,13 @@
          @include('home.header')
          <!-- end header section -->
          <!-- slider section -->
-         
+         @if(session()->has('message'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                    {{ session()->get('message') }}
+
+                </div>
+                @endif
          <!-- end slider section -->
       </div>
       <!-- why section -->
@@ -75,6 +81,12 @@
          </table>
          <div>
              <h1 style="font-size: 20px;padding:40px;">Total Price:{{ $totalprice }}</h1>
+         </div>
+
+         <div>
+             <h1 style="font-size:25px;padding-bottom:15px;">Proceed to order</h1>
+             <a href="{{ url('cash_order') }}" class="btn btn-danger" >Cash on Delivery</a>
+             <a href="" class="btn btn-danger" >Pay using Card</a>
          </div>
      </div>
       <!-- end client section -->
